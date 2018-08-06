@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+<div class="row tittle-button">
+  <h1>Listing Establishments</h1>
+  <%= button_to 'New Establishment', new_establishment_path, :method => "get", class: "btn btn-success mr-auto" %>
+</div>
+<div class="overflow-x">
+  <table class="table table-striped table-gray">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Tipo direccion</th>
+        <th scope="col">Nombre propietario</th>
+        <th scope="col">Genero propietario</th>
+        <th scope="col">Num soli</th>
+        <th scope="col">Aforo</th>
+        <th scope="col">Letras aforo</th>
+        <th scope="col">Actividad</th>
+        <th scope="col">Area</th>
+        <th scope="col">Primera inspeccion</th>
+        <th scope="col">Segunda inspeccion</th>
+        <th scope="col">Cumple</th>
+        <th scope="col">Num recibo</th>
+        <th scope="col">Num resolucion</th>
+        <th scope="col">Tipo inspeccion</th>
+        <th scope="col">Riesgo</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @establishments.each do |establishment| %>
+        <tr>
+          <td scope="row"><%= establishment.nombre %></td>
+          <td scope="row"><%= establishment.direccion %></td>
+          <td scope="row"><%= establishment.tipo_direccion %></td>
+          <td scope="row"><%= establishment.nombre_propietario %></td>
+          <td scope="row"><%= establishment.genero_propietario %></td>
+          <td scope="row"><%= establishment.num_soli %></td>
+          <td scope="row"><%= establishment.aforo %></td>
+          <td scope="row"><%= establishment.letras_aforo %></td>
+          <td scope="row"><%= establishment.actividad %></td>
+          <td scope="row"><%= establishment.area %></td>
+          <td scope="row"><%= establishment.primera_inspeccion %></td>
+          <td scope="row"><%= establishment.segunda_inspeccion %></td>
+          <td scope="row"><%= establishment.cumple %></td>
+          <td scope="row"><%= establishment.num_recibo %></td>
+          <td scope="row"><%= establishment.num_resolucion %></td>
+          <td scope="row"><%= establishment.tipo_inspeccion %></td>
+          <td scope="row"><%= establishment.riesgo %></td>
+          <td scope="row"><%= link_to 'Show', establishment, class: "btn btn-secondary" %></td>
+          <td scope="row"><%= link_to 'Edit', edit_establishment_path(establishment), class: "btn btn-secondary" %></td>
+          <td scope="row"><%= link_to 'Destroy', establishment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>

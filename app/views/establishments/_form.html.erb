@@ -1,0 +1,84 @@
+<%= form_for(@establishment) do |f| %>
+  <% if @establishment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@establishment.errors.count, "error") %> prohibited this establishment from being saved:</h2>
+
+      <ul>
+      <% @establishment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :nombre, for: :nombre %><br>
+    <%= f.text_field :nombre, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :direccion, for: :direccion %><br>
+    <%= f.text_field :direccion, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_direccion, for: :tipo_direccion %><br>
+    <%= f.collection_select :tipo_direccion, @tipo_direccion, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nombre_propietario, for: :nombre_propietario %><br>
+    <%= f.text_field :nombre_propietario, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genero_propietario, for: :genero_propietario %><br>
+    <%= f.number_field :genero_propietario, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :num_soli, for: :num_soli %><br>
+    <%= f.text_field :num_soli, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :aforo, for: :aforo %><br>
+    <%= f.number_field :aforo, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :letras_aforo, for: :letras_aforo %><br>
+    <%= f.text_field :letras_aforo, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :actividad, for: :actividad %><br>
+    <%= f.number_field :actividad, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :area, for: :area %><br>
+    <%= f.text_field :area, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :primera_inspeccion, for: :primera_inspeccion %><br>
+    <%= f.datetime_select :primera_inspeccion, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :segunda_inspeccion, for: :segunda_inspeccion %><br>
+    <%= f.datetime_select :segunda_inspeccion, class: "form-control" %>
+  </div>
+  <div class="form-group cumple-group">
+    <%= f.label :cumple, for: :cumple, class: "cumple-label" %><br>
+    <%= f.check_box :cumple, class: "form-control cumple-checkbox" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :num_recibo, for: :num_recibo %><br>
+    <%= f.text_field :num_recibo, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :num_resolucion, for: :num_resolucion %><br>
+    <%= f.text_field :num_resolucion, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_inspeccion, for: :tipo_inspeccion %><br>
+    <%= f.number_field :tipo_inspeccion, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :riesgo, for: :riesgo %><br>
+    <%= f.number_field :riesgo, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Aceptar", class: "btn btn-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+class CreateArchitects < ActiveRecord::Migration
+  def change
+    create_table :architects do |t|
+      t.string :nombre
+
+      t.timestamps null: false
+    end
+  end
+end

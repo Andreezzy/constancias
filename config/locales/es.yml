@@ -1,0 +1,22 @@
+es:
+  hello: "Hello world"
+  activerecord:
+    attributes:
+      establishment:
+        nombre: "Nombre"
+        direccion: "Dirección"
+        tipo_direccion: "Tipo de Dirección"
+        nombre_propietario: "Nombre de Propietario"
+        genero_propietario: "Género del Propietario"
+        num_soli: "Número de Solicitud"
+        aforo: "Aforo"
+        letras_aforo: "Letras Aforo"
+        actividad: "Actividad"
+        area: "Área"
+        primera_inspeccion: ""
+        segunda_inspeccion: ""
+        cumple: ""
+        num_recibo: ""
+        num_resolucion: ""
+        tipo_inspeccion: ""
+        riesgo: ""

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  direccion: MyString
+  tipo_direccion: 1
+  nombre_propietario: MyString
+  genero_propietario: 1
+  num_soli: MyString
+  aforo: 1
+  letras_aforo: MyString
+  actividad: 1
+  area: 1.5
+  primera_inspeccion: 2018-07-29 23:03:54
+  segunda_inspeccion: 2018-07-29 23:03:54
+  cumple: false
+  num_recibo: MyString
+  num_resolucion: MyString
+  tipo_inspeccion: 1
+  riesgo: 1
+
+two:
+  nombre: MyString
+  direccion: MyString
+  tipo_direccion: 1
+  nombre_propietario: MyString
+  genero_propietario: 1
+  num_soli: MyString
+  aforo: 1
+  letras_aforo: MyString
+  actividad: 1
+  area: 1.5
+  primera_inspeccion: 2018-07-29 23:03:54
+  segunda_inspeccion: 2018-07-29 23:03:54
+  cumple: false
+  num_recibo: MyString
+  num_resolucion: MyString
+  tipo_inspeccion: 1
+  riesgo: 1
