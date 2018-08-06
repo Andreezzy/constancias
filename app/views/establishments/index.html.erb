@@ -8,21 +8,21 @@
     <thead>
       <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Tipo direccion</th>
-        <th scope="col">Nombre propietario</th>
-        <th scope="col">Genero propietario</th>
-        <th scope="col">Num soli</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Tipo de Dirección</th>
+        <th scope="col">Nombre de Propietario</th>
+        <th scope="col">Género del Propietario</th>
+        <th scope="col">Número de Solicitud</th>
         <th scope="col">Aforo</th>
-        <th scope="col">Letras aforo</th>
+        <th scope="col">Letras Aforo</th>
         <th scope="col">Actividad</th>
-        <th scope="col">Area</th>
-        <th scope="col">Primera inspeccion</th>
-        <th scope="col">Segunda inspeccion</th>
-        <th scope="col">Cumple</th>
-        <th scope="col">Num recibo</th>
-        <th scope="col">Num resolucion</th>
-        <th scope="col">Tipo inspeccion</th>
+        <th scope="col">Área</th>
+        <th scope="col">Primera Inspección</th>
+        <th scope="col">Segunda Inspección</th>
+        <th scope="col">¿Cumple?</th>
+        <th scope="col">Número de Recibo</th>
+        <th scope="col">Número de Resolución</th>
+        <th scope="col">Tipo de Inspección</th>
         <th scope="col">Riesgo</th>
         <th colspan="3"></th>
       </tr>
@@ -43,7 +43,7 @@
           <td scope="row"><%= establishment.area %></td>
           <td scope="row"><%= establishment.primera_inspeccion %></td>
           <td scope="row"><%= establishment.segunda_inspeccion %></td>
-          <td scope="row"><%= establishment.cumple %></td>
+          <td scope="row"><%= establishment.cumple ? "Si" : "No" %></td>
           <td scope="row"><%= establishment.num_recibo %></td>
           <td scope="row"><%= establishment.num_resolucion %></td>
           <td scope="row"><%= establishment.tipo_inspeccion %></td>

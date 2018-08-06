@@ -75,5 +75,6 @@ class EstablishmentsController < ApplicationController
 
     def set_values_for_select
       @tipo_direccion = Establishment.tipo_direccions.map { |c| [c[0].titleize, c[0]] }
+      @genero_propietario = Establishment.genero_propietarios.map { |c| [c[0].titleize, c[0]] }
     end
 end
