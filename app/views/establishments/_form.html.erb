@@ -14,71 +14,110 @@
     <%= f.label :nombre, for: :nombre %><br>
     <%= f.text_field :nombre, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :direccion, for: :direccion %><br>
-    <%= f.text_field :direccion, class: "form-control" %>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <%= f.label :direccion, for: :direccion %><br>
+      <%= f.text_field :direccion, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :tipo_direccion, for: :tipo_direccion %><br>
+      <%= f.collection_select :tipo_direccion, @tipo_direccion, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :tipo_direccion, for: :tipo_direccion %><br>
-    <%= f.collection_select :tipo_direccion, @tipo_direccion, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <%= f.label :nombre_propietario, for: :nombre_propietario %><br>
+      <%= f.text_field :nombre_propietario, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :genero_propietario, for: :genero_propietario %><br>
+      <%= f.collection_select :genero_propietario, @genero_propietario, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :nombre_propietario, for: :nombre_propietario %><br>
-    <%= f.text_field :nombre_propietario, class: "form-control" %>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <%= f.label :num_soli, for: :num_soli %><br>
+      <%= f.text_field :num_soli, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= f.label :aforo, for: :aforo %><br>
+      <%= f.number_field :aforo, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :letras_aforo, for: :letras_aforo %><br>
+      <%= f.text_field :letras_aforo, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= f.label :actividad, for: :actividad %><br>
+      <%= f.collection_select :actividad, @actividad, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= f.label :area, for: :area %><br>
+      <%= f.text_field :area, class: "form-control" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :genero_propietario, for: :genero_propietario %><br>
-    <%= f.collection_select :genero_propietario, @genero_propietario, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= f.label :tipo_inspeccion, for: :tipo_inspeccion %><br>
+      <%= f.collection_select :tipo_inspeccion, @tipo_inspeccion, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :num_soli, for: :num_soli %><br>
-    <%= f.text_field :num_soli, class: "form-control" %>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= f.label :num_recibo, for: :num_recibo %><br>
+      <%= f.text_field :num_recibo, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :primera_inspeccion, for: :primera_inspeccion %><br>
+      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+        <%= f.text_field(:primera_inspeccion, 
+          value: f.object.primera_inspeccion ? f.object.primera_inspeccion.strftime('%B %d, %Y') : nil, 
+          class: "form-control datetimepicker-input", data: {target:"#datetimepicker4"}) %>
+        <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+          <div class="input-group-text"><span class="fas fa-calendar-alt"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :segunda_inspeccion, for: :segunda_inspeccion %><br>
+      <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+        <%= f.text_field(:segunda_inspeccion, 
+          value: f.object.segunda_inspeccion ? f.object.segunda_inspeccion.strftime('%B %d, %Y') : nil, 
+          class: "form-control datetimepicker-input", data: {target:"#datetimepicker3"}) %>
+        <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+          <div class="input-group-text"><span class="fas fa-calendar-alt"></span></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :aforo, for: :aforo %><br>
-    <%= f.number_field :aforo, class: "form-control" %>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= f.label :num_resolucion, for: :num_resolucion %><br>
+      <%= f.text_field :num_resolucion, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :riesgo, for: :riesgo %><br>
+      <%= f.collection_select :riesgo, @riesgo, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :letras_aforo, for: :letras_aforo %><br>
-    <%= f.text_field :letras_aforo, class: "form-control" %>
+  <div class="form-row">
+    <div class="form-group cumple-group col-md-4">
+      <%= f.label :cumple, for: :cumple, class: "cumple-label" %><br>
+      <%= f.check_box :cumple, class: "form-control cumple-checkbox" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :actividad, for: :actividad %><br>
-    <%= f.number_field :actividad, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :area, for: :area %><br>
-    <%= f.text_field :area, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :primera_inspeccion, for: :primera_inspeccion %><br>
-    <%= f.datetime_select :primera_inspeccion, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :segunda_inspeccion, for: :segunda_inspeccion %><br>
-    <%= f.datetime_select :segunda_inspeccion, class: "form-control" %>
-  </div>
-  <div class="form-group cumple-group">
-    <%= f.label :cumple, for: :cumple, class: "cumple-label" %><br>
-    <%= f.check_box :cumple, class: "form-control cumple-checkbox" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :num_recibo, for: :num_recibo %><br>
-    <%= f.text_field :num_recibo, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :num_resolucion, for: :num_resolucion %><br>
-    <%= f.text_field :num_resolucion, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tipo_inspeccion, for: :tipo_inspeccion %><br>
-    <%= f.number_field :tipo_inspeccion, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :riesgo, for: :riesgo %><br>
-    <%= f.number_field :riesgo, class: "form-control" %>
+  <div id="architects_form" class="hidden">
+    <h3>Arquitectos</h3>
+    <div class="form-row">
+      <%= f.fields_for :architects do |b| %>
+        <div class="form-group col-md-6">
+          <%= b.label :nombre, for: :nombre %><br>
+          <%= b.text_field :nombre, class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit "Aceptar", class: "btn btn-success" %>
-  </div>
+      <%= f.submit "Aceptar", class: "btn btn-success" %>
+    </div>
 <% end %>

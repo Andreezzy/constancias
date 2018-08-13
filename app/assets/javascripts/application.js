@@ -13,8 +13,41 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require moment
+//= require tempusdominus-bootstrap-4.js
 //= require jquery_ujs
 //= require_tree .
 
 window.onload = function(){
+	$('#datetimepicker4').datetimepicker({
+    format: 'MMMM D, YYYY',
+    maxDate: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000)),
+    icons: {
+      up: 'fas fa-arrow-up',
+      down: 'fas fa-arrow-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right',
+      close: 'fas fa-times'
+    },
+    buttons: {showClose: true }
+  });
+  $('#datetimepicker3').datetimepicker({
+    format: 'MMMM D, YYYY',
+    maxDate: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000)),
+    icons: {
+      up: 'fas fa-arrow-up',
+      down: 'fas fa-arrow-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right',
+      close: 'fas fa-times'
+    },
+    buttons: {showClose: true }
+  });
+  $("#establishment_tipo_inspeccion").change(function(){
+    if($(this).val() == "Ex-Post"){
+      $("#architects_form").hide();
+    }else{
+      $("#architects_form").show();
+    }
+  })
 }

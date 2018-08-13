@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sablon'
 #GEMA PARA LOGIN
 gem 'devise'
+gem 'momentjs-rails'
+gem 'bootstrap4-datetime-picker-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Use ActiveModel has_secure_password

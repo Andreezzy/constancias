@@ -16,10 +16,12 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/new
   def new
     @establishment = Establishment.new
+    4.times { @establishment.architects.build }
   end
 
   # GET /establishments/1/edit
   def edit
+    (4-@establishment.architects.count).times { @establishment.architects.build }
   end
 
   # POST /establishments
@@ -70,11 +72,14 @@ class EstablishmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
-      params.require(:establishment).permit(:nombre, :direccion, :tipo_direccion, :nombre_propietario, :genero_propietario, :num_soli, :aforo, :letras_aforo, :actividad, :area, :primera_inspeccion, :segunda_inspeccion, :cumple, :num_recibo, :num_resolucion, :tipo_inspeccion, :riesgo)
+      params.require(:establishment).permit(:nombre, :direccion, :tipo_direccion, :nombre_propietario, :genero_propietario, :num_soli, :aforo, :letras_aforo, :actividad, :area, :primera_inspeccion, :segunda_inspeccion, :cumple, :num_recibo, :num_resolucion, :tipo_inspeccion, :riesgo, architects_attributes: [:id, :nombre])
     end
 
     def set_values_for_select
       @tipo_direccion = Establishment.tipo_direccions.map { |c| [c[0].titleize, c[0]] }
       @genero_propietario = Establishment.genero_propietarios.map { |c| [c[0].titleize, c[0]] }
+      @actividad = Establishment.actividads.map { |c| [c[0].titleize, c[0]] }
+      @tipo_inspeccion = Establishment.tipo_inspeccions.map { |c| [c[0].titleize, c[0]] }
+      @riesgo = Establishment.riesgos.map { |c| [c[0].titleize, c[0]] }
     end
 end

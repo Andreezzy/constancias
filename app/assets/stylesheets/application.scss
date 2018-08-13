@@ -13,6 +13,7 @@
  *= require_self
  */
 @import "bootstrap";
+@import "tempusdominus-bootstrap-4.css";
 
 body {
   padding-top: 5rem;
@@ -36,4 +37,7 @@ body {
 .cumple-label{
 	display: flex;
 	margin-right: 20px;
+}
+.hidden{
+	display: none;
 }

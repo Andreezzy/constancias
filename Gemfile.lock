@@ -46,6 +46,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
+    bootstrap4-datetime-picker-rails (0.1.8)
+      jquery-rails (~> 4.2, >= 4.2.0)
+      momentjs-rails (~> 2.10, >= 2.10.5)
     builder (3.2.3)
     byebug (10.0.2)
     coffee-rails (4.1.1)
@@ -87,6 +90,8 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     multi_json (1.13.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -184,11 +189,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap (~> 4.1.3)
+  bootstrap4-datetime-picker-rails
   byebug
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails
   pg (~> 0.20)
   rails (= 4.2.6)
   rails_12factor
