@@ -1,5 +1,5 @@
 class EstablishmentsController < ApplicationController
-  before_action :set_establishment, only: [:show, :edit, :update, :destroy]
+  before_action :set_establishment, only: [:show, :edit, :update, :download, :destroy]
   before_action :set_values_for_select, only: [:edit, :new]
 
   # GET /establishments
@@ -21,6 +21,7 @@ class EstablishmentsController < ApplicationController
 
   # GET /establishments/1/edit
   def edit
+    #raise I18n.with_locale(:es) { 145.to_words }.inspect
     (4-@establishment.architects.count).times { @establishment.architects.build }
   end
 
@@ -62,6 +63,26 @@ class EstablishmentsController < ApplicationController
       format.html { redirect_to establishments_url, notice: 'Establishment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    #template = Sablon.template(File.expand_path("#{Rails.root}/public/recipe_template.docx"))
+    template = Sablon.template(File.expand_path("#{Rails.root}/public/1.-RESOLUCION.docx"))
+    context = {
+      EL_O_LA: "el",
+      sr_o_sra: "Sr",
+      APELLIDOS_Y_NOMBRES_O_RAZON_SOCIAL_: "JESUS ANTONY ARRATIA CAMA",
+      NOMBRE: "BODEGA ARRATIA",
+      AVJRPASAJE: "pasaje",
+      DIRECCION: "Av. 28 de Agosto",
+    }
+    template.render_to_file File.expand_path("#{Rails.root}/public/constancia.docx"), context
+    
+    send_file(
+      "#{Rails.root}/public/constancia.docx",
+      filename: "mi_constancia.docx",
+      type: "application/docx"
+    )
   end
 
   private

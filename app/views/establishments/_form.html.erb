@@ -35,23 +35,19 @@
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
       <%= f.label :num_soli, for: :num_soli %><br>
       <%= f.text_field :num_soli, class: "form-control" %>
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
       <%= f.label :aforo, for: :aforo %><br>
       <%= f.number_field :aforo, class: "form-control" %>
     </div>
-    <div class="form-group col-md-4">
-      <%= f.label :letras_aforo, for: :letras_aforo %><br>
-      <%= f.text_field :letras_aforo, class: "form-control" %>
-    </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
       <%= f.label :actividad, for: :actividad %><br>
       <%= f.collection_select :actividad, @actividad, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
       <%= f.label :area, for: :area %><br>
       <%= f.text_field :area, class: "form-control" %>
     </div>

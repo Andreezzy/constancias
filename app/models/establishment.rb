@@ -11,4 +11,9 @@ class Establishment < ActiveRecord::Base
   enum tipo_inspeccion: { "Ex-Post": 0, "Ex-Ante": 1, "De Detalle": 2}
   enum riesgo: { "Alto": 0, "Bajo": 1, "Medio": 2 }
 
+  before_save :default_values
+  
+  def default_values
+    self.letras_aforo = I18n.transliterate(I18n.with_locale(:es) { self.aforo.to_words }).upcase
+  end
 end

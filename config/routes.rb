@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'establishments#index', as: :authenticated_root
     resources :establishment
+    get 'establishments/:id/download', to: "establishments#download", as: :establishment_dowload
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_scope :user do

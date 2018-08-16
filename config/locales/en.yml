@@ -28,7 +28,7 @@ en:
         direccion: "Dirección"
         tipo_direccion: "Tipo de Dirección"
         nombre_propietario: "Nombre de Propietario"
-        genero_propietario: "Género del Propietario"
+        genero_propietario: "Sr/Sra"
         num_soli: "Número de Solicitud"
         aforo: "Aforo"
         letras_aforo: "Letras Aforo"
