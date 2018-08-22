@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730040537) do
+ActiveRecord::Schema.define(version: 20180821225654) do
 
   create_table "architects", force: :cascade do |t|
     t.string   "nombre"
@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20180730040537) do
     t.string   "num_resolucion"
     t.integer  "tipo_inspeccion"
     t.integer  "riesgo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "generate_resolution", default: false
+    t.boolean  "cumple_2"
   end
 
   create_table "personals", force: :cascade do |t|

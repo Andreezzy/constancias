@@ -2,8 +2,8 @@
 <div class="container">
   <%= link_to 'Ver Lista', establishments_path, class: "btn btn-success" %>
   <%= link_to 'Editar', edit_establishment_path(@establishment), class: "btn btn-success" %>
-  <%= link_to 'Generar Resolución', establishment_dowload_path(@establishment), target: :_blank, class: "btn btn-success" %>
-  <%= link_to 'Generar Certificado', edit_establishment_path(@establishment), class: "btn btn-success" %>
+  <%= link_to 'Generar Resolución', establishment_download_resolution_path(@establishment), target: :_blank, class: "btn btn-success" %>
+  <%= link_to 'Generar Certificado', establishment_download_certificado_path(@establishment), class: "btn btn-success" %>
 </div>
 <table class="table table-striped">
   <thead>
@@ -30,7 +30,7 @@
       <td><%= @establishment.nombre_propietario %></td>
     </tr>
     <tr>
-      <td><strong>Genero propietario:</strong></td>
+      <td><strong>Sr/Sra:</strong></td>
       <td><%= @establishment.genero_propietario %></td>
     </tr>
     <tr>
@@ -58,12 +58,16 @@
       <td><%= @establishment.primera_inspeccion %></td>
     </tr>
     <tr>
+      <td><strong>Cumple Primera Inspección:</strong></td>
+      <td><%= @establishment.cumple_text %></td>
+    </tr>
+    <tr>
       <td><strong>Segunda inspeccion:</strong></td>
       <td><%= @establishment.segunda_inspeccion %></td>
     </tr>
     <tr>
-      <td><strong>Cumple:</strong></td>
-      <td><%= @establishment.cumple %></td>
+      <td><strong>Cumple Segunda Inspección:</strong></td>
+      <td><%= @establishment.cumple_2_text %></td>
     </tr>
     <tr>
       <td><strong>Num recibo:</strong></td>

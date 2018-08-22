@@ -1,5 +1,6 @@
 class EstablishmentsController < ApplicationController
-  before_action :set_establishment, only: [:show, :edit, :update, :download, :destroy]
+  include ApplicationHelper
+  before_action :set_establishment, only: [:show, :edit, :update, :download_resolution, :download_certificado, :destroy]
   before_action :set_values_for_select, only: [:edit, :new]
 
   # GET /establishments
@@ -65,9 +66,36 @@ class EstablishmentsController < ApplicationController
     end
   end
 
-  def download
-    #template = Sablon.template(File.expand_path("#{Rails.root}/public/recipe_template.docx"))
-    template = Sablon.template(File.expand_path("#{Rails.root}/public/1.-RESOLUCION.docx"))
+  def download_resolution
+    #raise @establishment.dispone?.inspect
+    type_resolution = @establishment.tipo_inspeccion
+    @establishment.update(generate_resolution: true)
+    template = Sablon.template(File.expand_path("#{Rails.root}/public/resolucion-#{type_resolution}.docx"))
+    context = {
+      EL_O_LA: @establishment.set_el_o_la,
+      sr_o_sra: @establishment.genero_propietario,
+      APELLIDOS_Y_NOMBRES_O_RAZON_SOCIAL_: @establishment.nombre_propietario,
+      NOMBRE: @establishment.nombre,
+      AVJRPASAJE: @establishment.set_tipo_direccion,
+      DIRECCION: @establishment.direccion,
+      FECHA_DE_INSPECCION: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
+      del_prresente_año: "del presente año",
+      CUMPLE_01: set_boolean(@establishment.cumple),
+      disponer: @establishment.dispone?,
+      DEL_O_DE_LA: @establishment.set_del_o_de_la
+    }
+    template.render_to_file File.expand_path("#{Rails.root}/public/resolucion.docx"), context
+    
+    send_file(
+      "#{Rails.root}/public/resolucion.docx",
+      filename: "resolucion-#{@establishment.id}.docx",
+      type: "application/docx"
+    )
+  end
+
+  def download_certificado
+    type_resolution = @establishment.tipo_inspeccion
+    template = Sablon.template(File.expand_path("#{Rails.root}/public/certificado-#{type_resolution}.docx"))
     context = {
       EL_O_LA: "el",
       sr_o_sra: "Sr",
@@ -76,11 +104,11 @@ class EstablishmentsController < ApplicationController
       AVJRPASAJE: "pasaje",
       DIRECCION: "Av. 28 de Agosto",
     }
-    template.render_to_file File.expand_path("#{Rails.root}/public/constancia.docx"), context
+    template.render_to_file File.expand_path("#{Rails.root}/public/certificado.docx"), context
     
     send_file(
-      "#{Rails.root}/public/constancia.docx",
-      filename: "mi_constancia.docx",
+      "#{Rails.root}/public/certificado.docx",
+      filename: "certificado-#{@establishment.id}.docx",
       type: "application/docx"
     )
   end
@@ -93,7 +121,7 @@ class EstablishmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
-      params.require(:establishment).permit(:nombre, :direccion, :tipo_direccion, :nombre_propietario, :genero_propietario, :num_soli, :aforo, :letras_aforo, :actividad, :area, :primera_inspeccion, :segunda_inspeccion, :cumple, :num_recibo, :num_resolucion, :tipo_inspeccion, :riesgo, architects_attributes: [:id, :nombre])
+      params.require(:establishment).permit(:nombre, :direccion, :tipo_direccion, :nombre_propietario, :genero_propietario, :num_soli, :aforo, :letras_aforo, :actividad, :area, :primera_inspeccion, :segunda_inspeccion, :cumple, :cumple_2, :num_recibo, :num_resolucion, :tipo_inspeccion, :riesgo, architects_attributes: [:id, :nombre])
     end
 
     def set_values_for_select

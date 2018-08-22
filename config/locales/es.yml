@@ -20,3 +20,31 @@ es:
         num_resolucion: ""
         tipo_inspeccion: ""
         riesgo: ""
+  date:
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+    month_names:
+      -
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
+  time:
+    formats:
+      long: '%A, %B %d, %Y'
+      short: '%b %d, %Y'
+      day_month: '%d de %B'

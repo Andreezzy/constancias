@@ -15,13 +15,13 @@
     <%= f.text_field :nombre, class: "form-control" %>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-8">
-      <%= f.label :direccion, for: :direccion %><br>
-      <%= f.text_field :direccion, class: "form-control" %>
-    </div>
     <div class="form-group col-md-4">
       <%= f.label :tipo_direccion, for: :tipo_direccion %><br>
       <%= f.collection_select :tipo_direccion, @tipo_direccion, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
+    <div class="form-group col-md-8">
+      <%= f.label :direccion, for: :direccion %><br>
+      <%= f.text_field :direccion, class: "form-control" %>
     </div>
   </div>
   <div class="form-row">
@@ -64,6 +64,16 @@
       <%= f.text_field :num_recibo, class: "form-control" %>
     </div>
     <div class="form-group col-md-4">
+      <%= f.label :num_resolucion, for: :num_resolucion %><br>
+      <%= f.text_field :num_resolucion, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :riesgo, for: :riesgo %><br>
+      <%= f.collection_select :riesgo, @riesgo, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
       <%= f.label :primera_inspeccion, for: :primera_inspeccion %><br>
       <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
         <%= f.text_field(:primera_inspeccion, 
@@ -74,7 +84,11 @@
         </div>
       </div>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group cumple-group col-md-3">
+      <%= f.label :cumple, for: :cumple, class: "cumple-label" %><br>
+      <%= f.check_box :cumple, class: "form-control cumple-checkbox" %>
+    </div>
+    <div class="form-group col-md-3">
       <%= f.label :segunda_inspeccion, for: :segunda_inspeccion %><br>
       <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
         <%= f.text_field(:segunda_inspeccion, 
@@ -85,21 +99,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <%= f.label :num_resolucion, for: :num_resolucion %><br>
-      <%= f.text_field :num_resolucion, class: "form-control" %>
-    </div>
-    <div class="form-group col-md-4">
-      <%= f.label :riesgo, for: :riesgo %><br>
-      <%= f.collection_select :riesgo, @riesgo, :last, :first, {include_blank: true}, class: "form-control arrow-in-select reception-field paid-field" %>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group cumple-group col-md-4">
-      <%= f.label :cumple, for: :cumple, class: "cumple-label" %><br>
-      <%= f.check_box :cumple, class: "form-control cumple-checkbox" %>
+    <div class="form-group cumple-group col-md-3">
+      <%= f.label :cumple_2, for: :cumple_2, class: "cumple-label" %><br>
+      <%= f.check_box :cumple_2, class: "form-control cumple-checkbox" %>
     </div>
   </div>
   <div id="architects_form" class="hidden">

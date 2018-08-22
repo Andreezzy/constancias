@@ -37,6 +37,7 @@ en:
         primera_inspeccion: "Primera Inspección"
         segunda_inspeccion: "Segunda Inspección"
         cumple: "¿Cumple?"
+        cumple_2: "¿Cumple?"
         num_recibo: "Número de Recibo"
         num_resolucion: "Número de Resolución"
         tipo_inspeccion: "Tipo de Inspección"
