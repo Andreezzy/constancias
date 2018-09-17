@@ -81,8 +81,7 @@ class EstablishmentsController < ApplicationController
       FECHA_DE_INSPECCION: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
       del_prresente_año: "del presente año",
       CUMPLE_01: set_boolean(@establishment.cumple),
-      disponer: @establishment.dispone?,
-      DEL_O_DE_LA: @establishment.set_del_o_de_la
+      disponer: @establishment.dispone?
     }
     template.render_to_file File.expand_path("#{Rails.root}/public/resolucion.docx"), context
     
@@ -97,12 +96,16 @@ class EstablishmentsController < ApplicationController
     type_resolution = @establishment.tipo_inspeccion
     template = Sablon.template(File.expand_path("#{Rails.root}/public/certificado-#{type_resolution}.docx"))
     context = {
-      EL_O_LA: "el",
-      sr_o_sra: "Sr",
-      APELLIDOS_Y_NOMBRES_O_RAZON_SOCIAL_: "JESUS ANTONY ARRATIA CAMA",
-      NOMBRE: "BODEGA ARRATIA",
-      AVJRPASAJE: "pasaje",
-      DIRECCION: "Av. 28 de Agosto",
+      EL_O_LA: @establishment.set_el_o_la,
+      sr_o_sra: @establishment.genero_propietario,
+      APELLIDOS_Y_NOMBRES_O_RAZON_SOCIAL_: @establishment.nombre_propietario,
+      NOMBRE: @establishment.nombre,
+      AVJRPASAJE: @establishment.set_tipo_direccion,
+      DIRECCION: @establishment.direccion,
+      FECHA_DE_INSPECCION: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
+      del_prresente_año: "del presente año",
+      CUMPLE_01: set_boolean(@establishment.cumple),
+      disponer: @establishment.dispone?
     }
     template.render_to_file File.expand_path("#{Rails.root}/public/certificado.docx"), context
     
