@@ -3,8 +3,11 @@
   <%= link_to 'Ver Lista', establishments_path, class: "btn btn-success" %>
   <%= link_to 'Editar', edit_establishment_path(@establishment), class: "btn btn-success" %>
   <%= link_to 'Generar Resolución', establishment_download_resolution_path(@establishment), target: :_blank, class: "btn btn-success" %>
-  <%= link_to 'Generar Certificado', establishment_download_certificado_path(@establishment), class: "btn btn-success" %>
+  <% if @establishment.generate_resolution %>
+    <%= link_to 'Generar Certificado', establishment_download_certificado_path(@establishment), class: "btn btn-success" %>
+  <% end %>
 </div>
+<hr/>
 <table class="table table-striped">
   <thead>
     <tr>

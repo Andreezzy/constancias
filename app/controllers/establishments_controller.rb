@@ -67,7 +67,6 @@ class EstablishmentsController < ApplicationController
   end
 
   def download_resolution
-    #raise @establishment.dispone?.inspect
     type_resolution = @establishment.tipo_inspeccion
     @establishment.update(generate_resolution: true)
     template = Sablon.template(File.expand_path("#{Rails.root}/public/resolucion-#{type_resolution}.docx"))
@@ -94,6 +93,15 @@ class EstablishmentsController < ApplicationController
 
   def download_certificado
     type_resolution = @establishment.tipo_inspeccion
+
+    if @establishment.num_certificate.nil?
+      num_certificate = Establishment.where(tipo_inspeccion: type_resolution).count
+      while Establishment.where(num_certificate: num_certificate, tipo_inspeccion: type_resolution).any?
+        num_certificate += 1
+      end
+      @establishment.update(num_certificate: num_certificate)
+    end
+
     template = Sablon.template(File.expand_path("#{Rails.root}/public/certificado-#{type_resolution}.docx"))
     context = {
       EL_O_LA: @establishment.set_el_o_la,
@@ -105,7 +113,8 @@ class EstablishmentsController < ApplicationController
       FECHA_DE_INSPECCION: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
       del_prresente_año: "del presente año",
       CUMPLE_01: set_boolean(@establishment.cumple),
-      disponer: @establishment.dispone?
+      disponer: @establishment.dispone?,
+      certif: @establishment.num_certificate
     }
     template.render_to_file File.expand_path("#{Rails.root}/public/certificado.docx"), context
     
