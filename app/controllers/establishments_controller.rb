@@ -6,7 +6,12 @@ class EstablishmentsController < ApplicationController
   # GET /establishments
   # GET /establishments.json
   def index
-    @establishments = Establishment.all
+    if params.has_key?("t")
+      type_id = if params["t"] == "ep" then 0 elsif params["t"] == "ea" then 1 else 2 end
+      @establishments = Establishment.where(tipo_inspeccion: type_id)
+    else
+      @establishments = Establishment.all
+    end
   end
 
   # GET /establishments/1

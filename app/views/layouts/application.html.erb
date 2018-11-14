@@ -20,13 +20,13 @@
       <div class="navbar-collapse offcanvas-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mr-3">
-            <a class="nav-link p-2 text-success" href="#">Lista Ex Post</a>
+            <%= link_to "Lista Ex Post", "#{root_path}?t=ep", class: "nav-link p-2 text-success" %>
           </li>
           <li class="nav-item mr-3">
-            <a class="nav-link p-2 text-success" href="#">Lista Ex Ante</a>
+            <%= link_to "Lista Ex Ante", "#{root_path}?t=ea", class: "nav-link p-2 text-success" %>
           </li>
           <li class="nav-item mr-3">
-            <a class="nav-link p-2 text-success" href="#">Lista De Detalle</a>
+            <%= link_to "Lista De Detalle", "#{root_path}?t=dd", class: "nav-link p-2 text-success" %>
           </li>
           <li class="nav-item mr-3">
             <%= button_to 'Agregar nuevo', new_establishment_path, :method => "get", class: "btn btn-success mr-auto" %>
