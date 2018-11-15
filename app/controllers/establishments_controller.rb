@@ -85,7 +85,15 @@ class EstablishmentsController < ApplicationController
       FECHA_DE_INSPECCION: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
       del_prresente_año: "del presente año",
       CUMPLE_01: set_boolean(@establishment.cumple),
-      disponer: @establishment.dispone?
+      disponer: @establishment.dispone?,
+
+      sr_sra: @establishment.genero_propietario,
+      PROPIETARIOREPRESENTANTE:@establishment.nombre_propietario,
+      FECHA_DE_INSPECCION_1: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
+      FECHA_DE_INSPECCION_2: @establishment.set_fecha_inspeccion(@establishment.segunda_inspeccion),
+      CUMPLE: set_boolean(@establishment.cumple),
+      CUMPLE_2: set_boolean(@establishment.cumple_2),
+      del_de_la: @establishment.set_del_o_de_la,
     }
     template.render_to_file File.expand_path("#{Rails.root}/public/resolucion.docx"), context
     
