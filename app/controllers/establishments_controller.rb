@@ -81,18 +81,25 @@ class EstablishmentsController < ApplicationController
       APELLIDOS_Y_NOMBRES_O_RAZON_SOCIAL_: @establishment.nombre_propietario,
       NOMBRE: @establishment.nombre,
       AVJRPASAJE: @establishment.set_tipo_direccion,
+      AVJRPSJE: @establishment.set_tipo_direccion,
+      AV: @establishment.set_tipo_direccion,
       DIRECCION: @establishment.direccion,
       FECHA_DE_INSPECCION: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
       del_prresente_año: "del presente año",
       CUMPLE_01: set_boolean(@establishment.cumple),
       disponer: @establishment.dispone?,
+      DISPONER: @establishment.dispone?,
 
       sr_sra: @establishment.genero_propietario,
       PROPIETARIOREPRESENTANTE:@establishment.nombre_propietario,
       FECHA_DE_INSPECCION_1: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
+      FECHA_DE_INSPECCION_01: @establishment.set_fecha_inspeccion(@establishment.primera_inspeccion),
       FECHA_DE_INSPECCION_2: @establishment.set_fecha_inspeccion(@establishment.segunda_inspeccion),
+      FECHA_DE_INSPECCION_02: @establishment.set_fecha_inspeccion(@establishment.segunda_inspeccion),
       CUMPLE: set_boolean(@establishment.cumple),
+      CUMPLEFINAL: set_boolean(@establishment.cumple?),
       CUMPLE_2: set_boolean(@establishment.cumple_2),
+      CUMPLE_02: set_boolean(@establishment.cumple_2),
       del_de_la: @establishment.set_del_o_de_la,
     }
     template.render_to_file File.expand_path("#{Rails.root}/public/resolucion.docx"), context
@@ -127,7 +134,13 @@ class EstablishmentsController < ApplicationController
       del_prresente_año: "del presente año",
       CUMPLE_01: set_boolean(@establishment.cumple),
       disponer: @establishment.dispone?,
-      certif: @establishment.num_certificate
+      certif: @establishment.num_certificate,
+      AFORO: @establishment.aforo,
+      AFORO_LETRAS: @establishment.letras_aforo,
+      ACTIVIDAD: @establishment.actividad,
+      NRO_SOLICITUD: @establishment.num_soli,
+      AREA: @establishment.num_soli,
+      RESOLUCION: @establishment.num_resolucion
     }
     template.render_to_file File.expand_path("#{Rails.root}/public/certificado.docx"), context
     
